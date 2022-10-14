@@ -1,0 +1,16 @@
+{
+  "name": "@sst-sandbox/services",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@serverless-stack/node": "^1.15.13",
+    "aws-sdk": "^2.1232.0",
+    "axios": "^1.1.2",
+    "dynamodb-toolbox": "^0.4.3",
+    "ulid": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.107"
+  }
+}
