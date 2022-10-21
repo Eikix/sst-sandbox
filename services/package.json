@@ -12,10 +12,12 @@
     "aws-sdk": "^2.1232.0",
     "axios": "^1.1.2",
     "dynamodb-toolbox": "^0.4.3",
+    "http-errors": "^2.0.0",
     "json-schema-to-ts": "^2.5.5",
     "ulid": "^2.3.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.107"
+    "@types/aws-lambda": "^8.10.107",
+    "@types/http-errors": "^1.8.2"
   }
 }

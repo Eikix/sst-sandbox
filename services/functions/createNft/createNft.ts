@@ -5,6 +5,7 @@ import jsonBodyParser from '@middy/http-json-body-parser';
 import validator from '@middy/validator';
 import httpErrorHandler from '@middy/http-error-handler';
 import { CreateNftInput, responseSchema, eventSchema } from './schema';
+import { BadRequest } from 'http-errors';
 
 const RARITIES = ['common', 'rare', 'unique', 'legendary'];
 
@@ -17,13 +18,13 @@ const lambdaHandler = async (event: CreateNftInput) => {
     nftRarity: RARITIES[Math.floor(Math.random() * RARITIES.length)],
     mintTimestamp: Date.now().toString(),
   };
+
   try {
     await NftEntity.put(nft);
   } catch (err) {
-    if (typeof err === 'string') console.error(err);
-    console.log(err);
-    throw new Error('Create NFT: Server Error');
+    throw new BadRequest();
   }
+
   return {
     statusCode: 200,
     headers: { 'Content-Type': 'text/plain' },
