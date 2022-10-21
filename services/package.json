@@ -4,10 +4,15 @@
   "type": "module",
   "scripts": {},
   "dependencies": {
+    "@middy/core": "^3.6.2",
+    "@middy/http-error-handler": "^3.6.2",
+    "@middy/http-json-body-parser": "^3.6.2",
+    "@middy/validator": "^3.6.2",
     "@serverless-stack/node": "^1.15.13",
     "aws-sdk": "^2.1232.0",
     "axios": "^1.1.2",
     "dynamodb-toolbox": "^0.4.3",
+    "json-schema-to-ts": "^2.5.5",
     "ulid": "^2.3.0"
   },
   "devDependencies": {
