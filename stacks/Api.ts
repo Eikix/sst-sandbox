@@ -17,7 +17,7 @@ export function Api({ stack }: StackContext) {
     },
     routes: {
       'GET /': 'functions/lambda.handler',
-      'GET /{userId}': 'functions/getUserNft.handler',
+      'GET /{userId}': 'functions/getUserNft/getUserNft.handler',
       'POST /create': 'functions/createNft/createNft.handler',
     },
   });
