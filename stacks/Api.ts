@@ -18,7 +18,7 @@ export function Api({ stack }: StackContext) {
     routes: {
       'GET /': 'functions/lambda.handler',
       'GET /{userId}': 'functions/getUserNft.handler',
-      'POST /create': 'functions/createNft.handler',
+      'POST /create': 'functions/createNft/createNft.handler',
     },
   });
   new Config.Parameter(stack, 'API_URL', {
