@@ -1,4 +1,5 @@
 # sst-sandbox
+
 A toy app to sandbox sst
 
 A simple CRUD-like app for creating (fake) NFTs
