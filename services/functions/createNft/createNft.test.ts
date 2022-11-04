@@ -5,8 +5,6 @@ import { Config } from '@serverless-stack/node/config';
 import { getApeNftEntityPK, getApeNftEntitySK, NftEntity } from '../../libs';
 import axios from 'axios';
 
-import { BadRequest } from 'http-errors';
-
 const MOCK_USER_ID = 'fred';
 
 describe('createNft', () => {

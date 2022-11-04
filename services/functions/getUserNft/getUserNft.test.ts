@@ -20,6 +20,7 @@ it('gets an nft', async () => {
   const res = await axios.get(`${API_URL}/${USER_ID}`);
 
   expect(
+    // @ts-expect-error No typing in axios.get
     res.data?.Items?.find((nft) => nft.nftId === '123456789')
   ).not.toBeUndefined();
 
