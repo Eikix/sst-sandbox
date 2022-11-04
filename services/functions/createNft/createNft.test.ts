@@ -18,10 +18,13 @@ describe('createNft', () => {
     const nftId = res.data;
 
     // List all articles
-    const nft = await NftEntity.query(`USER_ID#${MOCK_USER_ID}`);
+    const nft = await NftEntity.get({
+      PK: getApeNftEntityPK(MOCK_USER_ID),
+      SK: getApeNftEntitySK(nftId),
+    });
 
     // Check the newly created article exists
-    expect(nft?.Items?.find((nft) => nft?.nftId === nftId)).not.toBeUndefined();
+    expect(nft.Item).not.toBeUndefined();
 
     await NftEntity.delete({
       PK: getApeNftEntityPK(MOCK_USER_ID),

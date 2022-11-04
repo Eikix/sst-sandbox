@@ -11,7 +11,7 @@ it('gets an nft', async () => {
 
   const TEST_NFT = {
     userId: USER_ID,
-    nftId: '123456789',
+    nftId: '1234567890',
     nftRarity: 'common',
     mintTimestamp,
   };
@@ -21,7 +21,7 @@ it('gets an nft', async () => {
 
   expect(
     // @ts-expect-error No typing in axios.get
-    res.data?.Items?.find((nft) => nft.nftId === '123456789')
+    res.data?.Items?.find((nft) => nft.nftId === '1234567890')
   ).not.toBeUndefined();
 
   await NftEntity.delete({
