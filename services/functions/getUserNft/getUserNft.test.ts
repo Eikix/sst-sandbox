@@ -3,6 +3,8 @@ import { expect, it } from 'vitest';
 import { getApeNftEntityPK, getApeNftEntitySK, NftEntity } from '../../libs';
 import axios from 'axios';
 
+// Real Integration testing lambda handler through API Gateway call
+
 const USER_ID = 'fred';
 
 it('gets an nft', async () => {
