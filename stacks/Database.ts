@@ -1,4 +1,10 @@
-import { Config, StackContext, Table } from '@serverless-stack/resources';
+import {
+  Config,
+  Function,
+  StackContext,
+  Table,
+} from '@serverless-stack/resources';
+
 import {
   GS1_PARTITION_KEY,
   GS1_SORT_KEY,
@@ -24,12 +30,24 @@ export function Database({ stack }: StackContext) {
         sortKey: GS1_SORT_KEY,
       },
     },
+    stream: true,
   });
+
+  const TABLE_NAME = new Config.Parameter(stack, 'TABLE_NAME', {
+    value: table.tableName,
+  });
+
+  const forwardNft = {
+    function: {
+      handler: 'functions/forwardNft/forwardNft.main',
+      config: [TABLE_NAME],
+    },
+  };
+
+  table.addConsumers(stack, { forwardNft });
 
   return {
     table,
-    TABLE_NAME: new Config.Parameter(stack, 'TABLE_NAME', {
-      value: table.tableName,
-    }),
+    TABLE_NAME: TABLE_NAME,
   };
 }

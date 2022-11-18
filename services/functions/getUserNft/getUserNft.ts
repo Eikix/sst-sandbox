@@ -1,5 +1,3 @@
-import { APIGatewayProxyHandlerV2 } from 'aws-lambda';
-
 import { NftEntity } from '../../libs';
 
 import middy from '@middy/core';

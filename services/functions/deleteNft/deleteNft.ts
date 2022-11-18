@@ -1,4 +1,3 @@
-import { ulid } from 'ulid';
 import { getApeNftEntityPK, getApeNftEntitySK, NftEntity } from '../../libs';
 import middy from '@middy/core';
 import jsonBodyParser from '@middy/http-json-body-parser';

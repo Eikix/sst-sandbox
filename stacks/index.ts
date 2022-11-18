@@ -9,6 +9,8 @@ export default function (app: App) {
     bundle: {
       format: 'esm',
     },
+    timeout: 20,
+    memorySize: 512,
   });
   app.stack(Database).stack(Api);
 }
