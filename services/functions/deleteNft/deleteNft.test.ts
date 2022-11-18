@@ -3,6 +3,8 @@ import { expect, it, vi } from 'vitest';
 
 import { lambdaHandler } from './deleteNft';
 
+// Unit testing lambda handler by mocking AWS services
+
 // @ts-expect-error broken type inference on dynamodb-toolbox entity
 const spyDeleteNft = vi.spyOn(NftEntity, 'delete').mockResolvedValue();
 

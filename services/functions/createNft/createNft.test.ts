@@ -5,6 +5,8 @@ import { Config } from '@serverless-stack/node/config';
 import { getApeNftEntityPK, getApeNftEntitySK, NftEntity } from '../../libs';
 import axios from 'axios';
 
+// Real Integration testing lambda handler through API Gateway call
+
 const MOCK_USER_ID = 'fred';
 
 describe('createNft', () => {
