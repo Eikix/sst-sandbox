@@ -1,3 +1,6 @@
+// Mimic your lambda's environment variables with Config object.
+process.env.TABLE_NAME = 'never used lol';
+
 import { NftEntity } from '../../libs';
 import { expect, it, vi } from 'vitest';
 

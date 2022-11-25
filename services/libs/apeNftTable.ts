@@ -1,14 +1,14 @@
 import { DocumentClient } from 'aws-sdk/clients/dynamodb';
 import { Table } from 'dynamodb-toolbox';
-import { Config } from '@serverless-stack/node/config';
 import { PARTITION_KEY, SORT_KEY } from '../../stacks/partitionKeys';
+import { getEnv } from './getEnv';
 
 const documentClient = new DocumentClient({
   region: 'us-east-1',
 });
 
 export default new Table({
-  name: Config.TABLE_NAME,
+  name: getEnv('TABLE_NAME'),
   partitionKey: PARTITION_KEY,
   sortKey: SORT_KEY,
   autoExecute: true,

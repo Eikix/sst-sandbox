@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Converter } from 'aws-sdk/clients/dynamodb';
 import type { DynamoDBStreamEvent } from 'aws-lambda';
 import { NftEntity } from 'libs';
+import { getEnv } from 'libs/getEnv';
 
 // type DynamoDbStreamEvent = {
 //   Records: DynamoDbRecord[];
@@ -41,12 +42,9 @@ export const main = async (
             const newImage = Converter.unmarshall(dynamodb.NewImage);
             const nft = NftEntity.parse(newImage);
             res.push(nft);
-            await axios.post(
-              'https://webhook.site/351c0363-563e-4a46-a4be-e940e7725628',
-              {
-                event: JSON.stringify(nft),
-              }
-            );
+            await axios.post(getEnv('HOOK_URL'), {
+              event: JSON.stringify(nft),
+            });
             break;
           default:
             return;

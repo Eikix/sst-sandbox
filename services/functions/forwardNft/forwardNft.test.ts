@@ -1,3 +1,7 @@
+import { Config } from '@serverless-stack/node/config';
+// Mimic your lambda's environment variables with Config object.
+process.env.TABLE_NAME = Config.TEST_TABLE_NAME;
+
 import { describe, it } from 'vitest';
 
 import { getApeNftEntityPK, getApeNftEntitySK, NftEntity } from '../../libs';

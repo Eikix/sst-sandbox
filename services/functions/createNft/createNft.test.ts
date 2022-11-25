@@ -1,7 +1,8 @@
-import { describe, expect, it } from 'vitest';
-
+// Mimic your lambda's environment variables with Config object.
 import { Config } from '@serverless-stack/node/config';
+process.env.TABLE_NAME = Config.TEST_NO_DOWNSTREAM_TABLE_NAME;
 
+import { describe, expect, it } from 'vitest';
 import { getApeNftEntityPK, getApeNftEntitySK, NftEntity } from '../../libs';
 import axios from 'axios';
 
@@ -11,9 +12,9 @@ const MOCK_USER_ID = 'fred';
 
 describe('createNft', () => {
   it('should create an nft', async () => {
-    const API_URL = Config.API_URL;
+    const TEST_API_URL = Config.TEST_API_URL;
     // Create a new article
-    const res = await axios.post(`${API_URL}/create`, {
+    const res = await axios.post(`${TEST_API_URL}/create`, {
       userId: MOCK_USER_ID,
     });
 
